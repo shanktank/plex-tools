@@ -30,35 +30,11 @@ def rename(f, n):
 
 # == Main ============================================================================================================ #
 
-order = 1
-special = 1
-delim = ' '
-showdir = "./"
+part_delim = ' '
+season_dir = "./"
 
-for f in sorted(os.listdir(showdir)):
-    title_parts = f[:-4].split(delim)
+for f in sorted(os.listdir(season_dir)):
+    title_parts = f[:-4].split(part_delim)
     episode_num = title_parts[1][3:].strip()
     new_ep_name = title_parts[0].strip() + " S01E" + episode_num + ".mkv"
     rename(f.strip(), new_ep_name)
-
-#    p = f.split(delim)
-#    #n = "Dragon Ball Z - E%s.mkv" % p[4]
-#    if re.search(r" \([0-9]{4}\)", f):
-#        n = re.sub(r" \([0-9]{4}\)", "", f)
-#        n = re.sub(r" [0-9]+p", "", n)
-#        rename(f.strip(), n.strip())
-
-#    ep = re.search(r"Episode [0-9]{1,2}", f)
-#    sp = re.search(r"Episode [0-9]{1,2}\.[0-9]", f)
-#    pt = re.search(r"Part [0-9]", f)
-#    if ep or sp:
-#        if pt:
-#            n = "Dragon Ball Z Abridged: %s [%s] - S01E%s.mp4" % (ep.group(0), pt.group(0), "{:02}".format(order))
-#        elif sp:
-#            n = "Dragon Ball Z Abridged: Special %s - S01E%s.mp4" % (special, "{:02}".format(order))
-#            special += 1
-#        else:
-#            n = "Dragon Ball Z Abridged: %s - S01E%s.mp4" % (ep.group(0), "{:02}".format(order))
-#        order += 1
-#        rename(f.strip(), n)
-#        #print(n)
