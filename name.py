@@ -19,8 +19,9 @@ def cap(f):
 
 # Format episode titles divided into parts
 def part(f):
-    #return re.sub(r"(Part|Verse) ([0-9])", r"(\1 \2)", f)
-    return re.sub(r"[0-9] of ([0-9])", r"(Part \1)", f)
+    f = re.sub(r"(Part|Verse) ([0-9])", r"(\1 \2)", f)
+    f = re.sub(r"[0-9] of ([0-9])", r"(Part \1)", f)
+    return f
 
 # Rename episode
 def rename(f, n):
@@ -30,7 +31,7 @@ def rename(f, n):
 
 # == Main ============================================================================================================ #
 
-part_delim = ' '
+part_delim = " "
 season_dir = "./"
 
 for f in sorted(os.listdir(season_dir)):
